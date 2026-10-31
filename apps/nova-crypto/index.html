@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101412">
+  <title>Nova — Your crypto, in focus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="./index.html" aria-label="Nova home"><span class="brand-mark">✳</span> nova<span class="brand-dot">.</span></a>
+    <div class="workspace"><span class="workspace-icon">N</span><div>Personal workspace<small>Demo account</small></div><span class="muted">⌄</span></div>
+    <p class="nav-label">WORKSPACE</p>
+    <nav aria-label="Main navigation">
+      <button class="nav-item active" data-view="Overview"><span data-icon="grid"></span>Overview</button>
+      <button class="nav-item" data-view="Markets"><span data-icon="chart"></span>Markets<span class="nav-tag">8</span></button>
+      <button class="nav-item" data-view="Portfolio"><span data-icon="wallet"></span>Portfolio</button>
+      <button class="nav-item" data-view="Watchlist"><span data-icon="star"></span>Watchlist</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="learn-card"><span class="learn-orbit">✧</span><h3>A little knowledge.<br>A lot of possibility.</h3><p>Build your crypto confidence.</p><button id="learn-button">Explore the basics <span>↗</span></button></div>
+      <div class="network"><span class="status-dot"></span>Demo environment <span data-icon="shield"></span></div>
+      <button class="profile" id="profile-button"><span class="avatar">JD</span><span>Jamie Davis<small>Personal account</small></span><span>⌄</span></button>
+    </div>
+  </aside>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb-view">Overview</strong></div>
+      <div class="header-actions"><span class="demo-badge"><span class="status-dot"></span> Sandbox mode</span><button class="icon-button" id="info-button" aria-label="About this demo"><span data-icon="info"></span></button><span class="avatar small">JD</span></div>
+    </header>
+    <main>
+      <section class="page-heading">
+        <div><div class="eyebrow">YOUR DAILY PULSE</div><h1 id="page-title">Your crypto, in focus<span>.</span></h1><p id="page-description">A clearer view of the market. A smarter way to move.</p></div>
+        <button class="button primary" id="add-funds"><span>＋</span> Add demo funds</button>
+      </section>
+
+      <section class="stats-grid" aria-label="Market summary">
+        <article class="stat-card balance-card"><div class="stat-label">Total portfolio <span data-icon="wallet"></span></div><div class="stat-value" id="portfolio-value">$24,580.80</div><div class="stat-footer"><span class="balance-caption">Assets + available cash</span><span class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></article>
+        <article class="stat-card"><div class="stat-label">Global market cap <span data-icon="globe"></span></div><div class="stat-value">$2.42<span class="unit">T</span></div><div class="stat-footer"><span class="positive">↗ 3.24%</span><span>vs. last 24h</span></div></article>
+        <article class="stat-card"><div class="stat-label">24h trading volume <span data-icon="activity"></span></div><div class="stat-value">$84.68<span class="unit">B</span></div><div class="stat-footer"><span class="positive">↗ 8.17%</span><span>vs. last 24h</span></div></article>
+        <article class="stat-card sentiment-card"><div class="stat-label">Fear & greed index <span data-icon="info"></span></div><div class="sentiment-value"><div class="stat-value">72<span class="unit">/100</span></div><span class="greed">Greed</span></div><div class="sentiment-track"><i></i></div><div class="sentiment-labels"><span>Extreme fear</span><span>Extreme greed</span></div></article>
+      </section>
+
+      <div class="trading-grid" id="trading-section">
+        <section class="panel chart-panel">
+          <div class="chart-header">
+            <div class="asset-heading"><span id="chart-coin" class="coin bitcoin">₿</span><div><select id="chart-asset" aria-label="Chart asset"></select><span class="asset-subtitle" id="chart-pair">BTC / USD</span></div><span class="market-tag">Spot</span></div>
+            <span class="snapshot-label"><span class="status-dot"></span> Demo prices</span>
+          </div>
+          <div class="chart-price-row"><div><span id="chart-price" class="chart-price">$67,432.80</span><span class="chart-change positive" id="chart-change">↗ 2.84%</span></div><span class="muted text-xs">USD</span></div>
+          <div class="chart-toolbar"><div class="range-group" role="group" aria-label="Chart time range"><button data-range="1H">1H</button><button data-range="24H" class="selected">24H</button><button data-range="1W">1W</button><button data-range="1M">1M</button><button data-range="1Y">1Y</button><button data-range="ALL">ALL</button></div><span class="chart-style"><span data-icon="activity"></span> Price</span></div>
+          <div id="chart-container" class="chart-container"></div>
+          <div class="chart-bottom"><span><span class="status-dot"></span> Illustrative market snapshot</span><span>Chart data is simulated</span></div>
+        </section>
+
+        <section class="panel trade-panel">
+          <div class="panel-title"><h2>Quick trade</h2><span data-icon="exchange"></span></div>
+          <div class="trade-tabs" role="group" aria-label="Order direction"><button class="selected" data-side="buy">Buy</button><button data-side="sell">Sell</button></div>
+          <form id="trade-form">
+            <label for="trade-asset" class="field-label">Choose asset</label>
+            <div class="asset-select-wrap"><span id="trade-coin" class="coin bitcoin small-coin">₿</span><select id="trade-asset"></select></div>
+            <div class="field-label amount-label"><label for="trade-amount">Amount</label><span>Pay in USD</span></div>
+            <div class="amount-input"><span>$</span><input id="trade-amount" type="number" min="1" step="0.01" placeholder="0.00" required inputmode="decimal"><span>USD</span></div>
+            <div class="available">Available cash <span id="available-cash">$4,250.00</span></div>
+            <div class="amount-presets"><button type="button" data-amount="100">$100</button><button type="button" data-amount="500">$500</button><button type="button" data-amount="1000">$1,000</button><button type="button" id="max-amount">Max</button></div>
+            <div class="trade-estimate"><span id="estimate-label">You receive</span><strong id="trade-estimate">0.00000000 BTC</strong></div>
+            <div class="trade-fee"><span>Trading fee</span><span>$0.00 <small>Demo</small></span></div>
+            <button type="submit" class="button primary trade-submit" id="trade-submit">Preview buy <span>↗</span></button>
+            <p class="trade-disclaimer"><span data-icon="shield"></span> Practice only. No real money involved.</p>
+          </form>
+        </section>
+      </div>
+
+      <section class="panel market-panel" id="markets-section">
+        <div class="market-header"><div><h2 id="market-title">Market overview</h2><p id="market-subtitle">Find your next opportunity.</p></div><label class="search-box"><span data-icon="search"></span><input id="market-search" placeholder="Search assets..." aria-label="Search assets"><kbd>/</kbd></label></div>
+        <div class="market-controls"><div class="market-tabs" role="group" aria-label="Market filter"><button data-filter="all" class="selected">All assets</button><button data-filter="gainers">Top gainers <span>↗</span></button><button data-filter="watchlist">Watchlist <span>☆</span></button></div><span class="market-note">Sample data · USD</span></div>
+        <div class="table-scroll"><table><thead><tr><th aria-label="Watchlist"></th><th>#</th><th>Asset</th><th><button id="sort-price">Price <span>↕</span></button></th><th>24h change</th><th class="volume-column">24h volume</th><th>Last 7 days</th><th class="action-column"></th></tr></thead><tbody id="market-body"></tbody></table></div>
+        <div id="empty-state" hidden>No assets found. Try another search or add an asset to your watchlist.</div>
+        <div class="table-footer"><span id="asset-count">Showing 8 assets</span><span>Discover. Track. Make your next move. <span class="positive">↗</span></span></div>
+      </section>
+      <section class="panel holdings-panel" id="holdings-section" hidden><div class="market-header"><div><h2>Your holdings</h2><p>Simulated assets in your personal portfolio.</p></div><span class="demo-badge">Demo portfolio</span></div><div id="holdings-list"></div></section>
+      <footer><span class="footer-brand">✳ nova.</span><p>A little clarity in a world of crypto.</p><span>Demo data. Not financial advice.</span></footer>
+    </main>
+  </div>
+
+  <dialog id="modal">
+    <div class="modal-top"><span class="brand-mark">✳</span><button class="icon-button" id="close-modal" aria-label="Close dialog">✕</button></div>
+    <h2 id="modal-title"></h2><div id="modal-content"></div><div id="modal-actions"></div>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
