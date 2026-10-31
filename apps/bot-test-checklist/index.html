@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6fa">
+  <title>Bot Test Checklist</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <div class="brand-icon" aria-hidden="true">✓</div>
+      <span class="eyebrow">SMALL STEPS. REAL PROGRESS.</span>
+      <h1>Bot Test Checklist</h1>
+      <p>A little space to keep things moving.</p>
+    </header>
+
+    <section class="checklist" aria-labelledby="list-heading">
+      <div class="card-heading">
+        <div>
+          <h2 id="list-heading">Your tasks</h2>
+          <p>Add it. Check it. Keep going.</p>
+        </div>
+        <span class="count-badge" id="remaining-count" role="status">0 remaining</span>
+      </div>
+
+      <form id="task-form" novalidate>
+        <label for="task-input">What needs to get done?</label>
+        <div class="input-row">
+          <input id="task-input" name="task" type="text"
+            placeholder="Add a new task…" maxlength="200"
+            autocomplete="off" aria-describedby="input-error">
+          <button class="add-button" type="submit">
+            <span aria-hidden="true">+</span> Add task
+          </button>
+        </div>
+        <p id="input-error" class="error" role="alert" hidden></p>
+      </form>
+
+      <div class="list-area">
+        <ul id="task-list" aria-label="Tasks"></ul>
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon" aria-hidden="true">☑</div>
+          <h3>A fresh start</h3>
+          <p>No tasks yet. Add your first one above.</p>
+        </div>
+      </div>
+
+      <footer class="card-footer">
+        <span id="completion-count">0 of 0 completed</span>
+        <span class="storage-note" id="storage-note">Saved on this device</span>
+      </footer>
+    </section>
+
+    <p class="page-note">One checkmark at a time.</p>
+    <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+    <noscript><p class="error">Enable JavaScript to use this checklist.</p></noscript>
+  </main>
+</body>
+</html>
